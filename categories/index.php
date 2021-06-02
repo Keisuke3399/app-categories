@@ -1,11 +1,6 @@
 <?php
 try {
-  $options = [
-    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-    PDO::ATTR_EMULATE_PREPARES => false
-  ];
-  require_once("my_function.php");
+  require_once("my_functions.php");
   $pdo = new_pdo();
 
   $sql = "select id, title from categories order by id";
