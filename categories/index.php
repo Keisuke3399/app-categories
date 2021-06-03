@@ -7,7 +7,7 @@ try {
   $st = $pdo->query($sql);
   $categories = $st->fetchAll();
 } catch (PDOException $e) {
-  error_log("PDOException: ") . $e->getMessage();
+  error_log("PDOException: " . $e->getMessage());
   header("Location: error.php");
   exit();
 }
@@ -30,11 +30,15 @@ try {
     <tr>
       <th>ID</th>
       <th>TITLE</th>
+      <th>EDIT</th>
+      <TH>DELETE</TH>
     </tr>
     <?php foreach ($categories as $category) { ?>
       <tr>
-        <td><?= htmlspecialchars($category['id']); ?></td>
-        <td><?= htmlspecialchars($category['title']); ?></td>
+        <td><?= htmlspecialchars($category['id']) ?></td>
+        <td><?= htmlspecialchars($category['title']) ?></td>
+        <td><a href="edit.php?id=<?= htmlspecialchars($category['id']) ?>">EDIT</a></td>
+        <td><a href="delete.php?id=<?= htmlspecialchars($category['id']) ?>">DELETE</a></td>
       </tr>
     <?php } ?>
   </table>
