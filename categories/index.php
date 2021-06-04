@@ -1,9 +1,11 @@
 <?php
+require_once("my_functions.php");
+
 try {
-  require_once("my_functions.php");
   $pdo = new_pdo();
 
   $sql = "select id, title from categories order by id";
+
   $st = $pdo->query($sql);
   $categories = $st->fetchAll();
 } catch (PDOException $e) {
