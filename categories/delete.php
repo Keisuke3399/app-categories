@@ -1,8 +1,9 @@
 <?php
+require_once("my_functions.php");
 
 $id = (int)filter_input(INPUT_GET, "id");
-try{
-  require_once("my_functions.php");
+
+try {
   $pdo = new_pdo();
 
   $sql = "delete from categories where id = :id";
@@ -12,7 +13,7 @@ try{
   // $count = $ps->rowCount();
 
   header("Location: index.php");
-} catch(PDOException $e) {
+} catch (PDOException $e) {
   error_log("PDOException: " . $e->getMessage());
   header("Location: error.php");
 }

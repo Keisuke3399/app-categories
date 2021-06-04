@@ -1,12 +1,13 @@
 <?php
+require_once("my_functions.php");
 
 $id = (int)filter_input(INPUT_GET, "id");
 
 try {
-  require_once("my_functions.php");
   $pdo = new_pdo();
 
   $sql = "select * from categories where id = :id";
+
   $ps = $pdo->prepare($sql);
   $ps->bindValue(":id", $id, PDO::PARAM_INT);
   $ps->execute();
