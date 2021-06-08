@@ -34,9 +34,6 @@ if ($user !== false) {
   <title>Document</title>
 </head>
 <body>
-  <?= $user['id'] ?>
-  <?= $user['name'] ?>
-
   <?= $message ?>
 </body>
 </html>
