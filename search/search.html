@@ -8,10 +8,15 @@
     <h3>Course Search</h3>
     <hr />
     <form action="search_result.php" method="get">
-      TITLE <input type="text" name="title_q" /> LT
+      TITLE <input type="text" name="co_title" /> LT
       <input type="number" name="lt_q_min" /> 〜
       <input type="number" name="lt_q_max" />
-
+      <select name="ca_title">
+        <option value="" selected></option>
+        <option value="Programming">Programming</option>
+        <option value="Design">Design</option>
+        <option value="Marketing">Marketing</option>
+      </select>
       <button type="submit">search</button>
     </form>
   </body>
