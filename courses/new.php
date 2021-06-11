@@ -26,7 +26,8 @@ try {
 <body>
   <h3>Courses - New</h3>
   <hr>
-  <form action="create.php" method="post" <p>ID: <input type="number" name="id"></p>
+  <form action="create.php" method="post">
+    <p>ID: <input type="number" name="id"></p>
     <p>NAME: <input type="text" name="title"></p>
     <p>LEARNING_TIME: <input type="number" name="learning_time"></p>
     <p>CATEGORY:
