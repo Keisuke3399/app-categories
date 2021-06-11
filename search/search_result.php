@@ -16,7 +16,9 @@ try {
   // var_dump($pdo);
   $sql = "select co.id, co.title co_title, co.learning_time, ca.title ca_title from courses co left join categories ca on co.category_id = ca.id where co.title like :co_title";
 
-  if ($lt_q_min !== 0 && $lt_q_max !== 0) {
+  if ($lt_q_min !== 0 && $lt_q_max !== 0 && $ca_title !== "") {
+    $sql .= " and co.learning_time >= :lt_q_min and co.learning_time <= :lt_q_max and ca.title = :ca_title";
+  } else if ($lt_q_min !== 0 && $lt_q_max !== 0) {
     $sql .= " and co.learning_time between :lt_q_min and :lt_q_max";
   } else if ($lt_q_min !== 0) {
     $sql .= " and co.learning_time >= :lt_q_min";
@@ -31,7 +33,11 @@ try {
   $co_title = "%" . $co_title . "%";
   $ps->bindValue(":co_title", $co_title, PDO::PARAM_STR);
 
-  if ($lt_q_min !== 0 && $lt_q_max !== 0) {
+  if ($lt_q_min !== 0 && $lt_q_max !== 0 && $ca_title !== "") {
+    $ps->bindValue(":lt_q_min", $lt_q_min, PDO::PARAM_INT);
+    $ps->bindValue(":lt_q_max", $lt_q_max, PDO::PARAM_INT);
+    $ps->bindValue(":ca_title", $ca_title, PDO::PARAM_STR);
+  } else if ($lt_q_min !== 0 && $lt_q_max !== 0) {
     $ps->bindValue(":lt_q_min", $lt_q_min, PDO::PARAM_INT);
     $ps->bindValue(":lt_q_max", $lt_q_max, PDO::PARAM_INT);
   } else if ($lt_q_min !== 0) {
@@ -68,7 +74,9 @@ try {
     LT <input type="number" name="lt_q_min" value="<?= $_GET['lt_q_min'] ?>"> 〜
     <input type="number" name="lt_q_max" value="<?= $_GET['lt_q_max'] ?>">
     <select name="ca_title">
-      <option value=""><?= $_GET['ca_title'] ?></option>
+      <option value="<?= htmlspecialchars($_GET['ca_title']) ?>">
+        <?= htmlspecialchars($_GET['ca_title']) ?>
+      </option>
     </select>
     <button type="submit">search</button>
   </p>
