@@ -29,7 +29,8 @@ try {
     TITLE <input type="text" name="co_title" /> LT
     <input type="number" name="lt_q_min" /> 〜
     <input type="number" name="lt_q_max" />
-    <select name="ca_title">
+    CATEGORY <select name="ca_title">
+      <option value=""></option>
       <?php foreach ($categories as $category) { ?>
         <option value="<?= htmlspecialchars($category['title']) ?>">
           <?= htmlspecialchars($category['title']) ?>

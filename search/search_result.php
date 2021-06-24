@@ -73,7 +73,7 @@ try {
     TITLE <input type="text" name="co_title" value="<?= $_GET['co_title'] ?>">
     LT <input type="number" name="lt_q_min" value="<?= $_GET['lt_q_min'] ?>"> 〜
     <input type="number" name="lt_q_max" value="<?= $_GET['lt_q_max'] ?>">
-    <select name="ca_title">
+    CATEGORY <select name="ca_title">
       <option value="<?= htmlspecialchars($_GET['ca_title']) ?>">
         <?= htmlspecialchars($_GET['ca_title']) ?>
       </option>
