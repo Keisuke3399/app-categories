@@ -21,7 +21,7 @@ try {
 
 <head>
   <meta charset="UTF-8">
-  <title>PHP DB</title>
+  <title>Categories</title>
 </head>
 
 <body>
