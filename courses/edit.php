@@ -50,7 +50,7 @@ try {
     <p>CATEGORY:
       <select name="category_id">
         <?php foreach ($categories as $category) { ?>
-          # 三項演算子
+          <!-- 三項演算子 -->
           <option value="<?= htmlspecialchars($category['id']) ?>" <?= $category["id"] === $course["category_id"] ? "selected" : "" ?>>
             <?= htmlspecialchars($category['title']) ?>
           </option>
